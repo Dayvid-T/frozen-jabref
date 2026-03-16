@@ -14,5 +14,9 @@ jobs:
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@v2
+        with:
+          args: >
+            -Dsonar.projectKey=David-T_frozen-jabref
+            -Dsonar.organization=david-t
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
