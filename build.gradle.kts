@@ -4,6 +4,8 @@ plugins {
     id("org.openrewrite.rewrite") version "7.24.0"
     id("org.itsallcode.openfasttrace") version "3.1.0"
     id("org.cyclonedx.bom") version "3.1.0"
+    id "org.sonarqube" version "7.2.3.7755"
+
 }
 
 // OpenRewrite should rewrite all sources
@@ -76,7 +78,12 @@ allprojects {
             )
     }
 }
-
+sonar {
+    properties {
+        property "sonar.projectKey", "David-T_frozen-jabref"
+        property "sonar.organization", "david-t"
+    }
+}
 tasks.cyclonedxBom {
     // Aggregated SBOM configuration
     projectType = org.cyclonedx.model.Component.Type.APPLICATION
